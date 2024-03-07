@@ -1,3 +1,10 @@
+/**
+ * Represents a booking entity with specific properties.
+ * Also generate random Dynamic data using faker
+ * It can be used in update or create booking request
+ */
+
+
 import {faker} from '@faker-js/faker';
 
 class Booking {
@@ -34,6 +41,10 @@ class Booking {
 }
 
 
+/**
+ * Defines the structure of a Booking entity.
+ */
+
 export type BookingType = {
     firstname: string;
     lastname: string;
@@ -46,6 +57,11 @@ export type BookingType = {
     additionalneeds: string;
 }
 
+
+/**
+ * Generates random booking data using Faker library.
+ * @returns {Booking} A new instance of Booking with randomly generated data.
+ */
 
 export function generateRandomBooking(): Booking {
 

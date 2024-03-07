@@ -1,3 +1,9 @@
+/**
+ * This test suite performs end-to-end testing of booking API operations including creation, retrieval, update, and deletion.
+ * It utilizes various helper functions for generating random booking data, making API requests, validating responses, and managing tokens.
+ */
+
+
 import { test, expect, Response } from '@playwright/test';
 import {  BookingType, generateRandomBooking } from './postPojo/bookingData';
 import { createBooking } from './requests/postRequest';
