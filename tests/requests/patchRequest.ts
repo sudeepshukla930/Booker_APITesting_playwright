@@ -1,4 +1,7 @@
-export async function updateBookingPatch(request , bookingBody){
+import { BookingType } from "../postPojo/bookingData";
+
+
+export async function updateBookingPatch(request , bookingBody:BookingType){
 
     const response = await request.patch(`/booking/${process.env.BOOKING_ID}`,{
         data: {

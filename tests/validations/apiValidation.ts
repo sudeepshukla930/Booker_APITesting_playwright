@@ -1,16 +1,15 @@
-import { expect } from "@playwright/test";
+import { Response, expect } from "@playwright/test";
+import { BookingType } from "../postPojo/bookingData";
 
 export class ApiValidate{
 
-    static async  postValidate( response , bookingData){
+    static async  postValidate( response :Response, bookingData : BookingType){
 
         expect(response.status()).toBe(200);
 
-        // Assert the booking details with the data used for creation
+        
         const bookingDetails = await response.json();
 
-        //console.log("@@+++   ", bookingDetails)
-        //console.log("@@   ", bookingDetails.booking['firstname'])
         expect(bookingDetails.booking['firstname']).toBe(bookingData.firstname);
         expect(bookingDetails.booking['lastname']).toBe(bookingData.lastname);
         expect(bookingDetails.booking['totalprice']).toBe(bookingData.totalprice);
@@ -22,7 +21,7 @@ export class ApiValidate{
     }
 
 
-    static async  getValidate( response , bookingData){
+    static async  getValidate( response : Response, bookingData : BookingType){
 
         expect(response.status()).toBe(200);
 
@@ -34,13 +33,13 @@ export class ApiValidate{
     }
 
 
-    static async  putValidate( response , bookingData, getResponse){
+    static async  putValidate( response : Response , bookingData : BookingType, getResponse : any){
 
         expect(response.status()).toBe(200);
 
         // Assert the booking details with the data used for creation
         const updatedBookingDetails = await response.json();
-       //const getResponses = await getResponse.json();
+      
 
         expect(updatedBookingDetails).not.toEqual(expect.objectContaining(getResponse));
 
@@ -49,7 +48,7 @@ export class ApiValidate{
 
     }
 
-    static async  patchValidate( response , bookingData){
+    static async  patchValidate( response : Response, bookingData : BookingType){
 
         expect(response.status()).toBe(200);
 
@@ -61,6 +60,12 @@ export class ApiValidate{
         expect(bookingDetails['totalprice']).toBe(bookingData.totalprice);
        
 
+    }
+
+    static async deleteValidate(response:Response, requestMethod : string){
+
+        (requestMethod === "delete") ? expect(response.status()).toBe(201) :  expect(response.status()).toBe(404);
+        
     }
 
 

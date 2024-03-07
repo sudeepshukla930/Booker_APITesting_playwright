@@ -34,6 +34,19 @@ class Booking {
 }
 
 
+export type BookingType = {
+    firstname: string;
+    lastname: string;
+    totalprice: number;
+    depositpaid: boolean;
+    bookingdates: {
+        checkin: string;
+        checkout: string;
+    };
+    additionalneeds: string;
+}
+
+
 export function generateRandomBooking(): Booking {
 
          const  firstname = faker.person.firstName();
