@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "apiTest" : "npx playwright test"
+    "apiTest" : "npx playwright test",
+    "htmlReport" : "npx playwright show-report html-report"
   },
   "keywords": [],
   "author": "",
